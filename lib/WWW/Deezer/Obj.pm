@@ -5,7 +5,7 @@ our $VERSION = '0.02';
 use Moose;
 use Moose::Util::TypeConstraints;
 
-# base class for representing Deezer objects;
+# base class for representing Deezer objects
 
 subtype 'JSONBoolean' => (as 'Int');
 
@@ -17,11 +17,10 @@ coerce 'JSONBoolean' => (
 has 'deezer_obj', is => 'rw', isa => 'Ref';
 
 sub reinit_attr_values {
-    my ($self, $new) = (shift, shift);
+    my ($self, $new) = @_;
     my $package = caller || __PACKAGE__;
 
-    my $meta = $package->meta;
-    my @attrs = $meta->get_all_attributes();
+    my @attrs = $package->meta->get_all_attributes();
 
     foreach my $attr (@attrs) {
         my $name = $attr->name;
