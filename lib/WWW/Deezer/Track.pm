@@ -12,24 +12,64 @@ use WWW::Deezer::Artist;
 
 # http://developers.deezer.com/api/track
 
-has 'id', is => 'ro', isa => 'Int';
-has 'title', is => 'ro', isa => 'Str';
-has 'link', is => 'ro', isa => 'Str';
-has 'duration', is => 'ro', isa => 'Int';
-has 'track_position', is => 'ro', isa => 'Int';
-has 'disk_number', is => 'ro', isa => 'Int';
-has 'rank', is => 'ro', isa => 'Int';
-has 'release_date', is => 'ro';
-has 'preview', is => 'ro', isa => 'Str';
+has 'id' => (
+    is  => 'ro',
+    isa => 'Int',
+);
+    
+has 'title' => (
+    is  => 'ro',
+    isa => 'Str',
+);
+    
+has 'link' => (
+    is  => 'ro',
+    isa => 'Str',
+);
+    
+has 'duration' => (
+    is  => 'ro',
+    isa => 'Int',
+);
+    
+has 'track_position' => (
+    is  => 'ro',
+    isa => 'Int',
+);
+
+has 'disk_number' => (
+    is  => 'ro',
+    isa => 'Int',
+);
+
+has 'rank' => (
+    is  => 'ro',
+    isa => 'Int',
+);
+
+has 'release_date' => (
+    is => 'ro',
+);
+
+has 'preview' => (
+    is  => 'ro',
+    isa => 'Str',
+);
 
 has 'artist' => (
     is => 'rw', 
     isa => 'Ref',
 ); # 2do: change Ref to Object
 
-has 'album' => (is => 'rw', isa => 'Ref'); # 2do: change Ref to Object
+has 'album' => (
+    is  => 'rw',
+    isa => 'Ref',
+); # 2do: change Ref to Object
 
-has 'deezer_obj' => (is => 'rw', isa => 'Ref');
+has 'deezer_obj' => (
+    is  => 'rw',
+    isa => 'Ref'
+);
 
 sub count {
     my $self = shift;
