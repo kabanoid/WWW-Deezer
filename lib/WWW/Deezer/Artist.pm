@@ -26,7 +26,7 @@ has 'radio' => (
 );
 
 around BUILDARGS => sub { # allow create Artist object with single argument passed to constructor - deezer ID
-    my ($orig, $class) = (shift, shift);
+    my ($orig, $class) = @_;
     my $self = {};
 
     if (@_ == 1 && !ref $_[0] ) {
@@ -41,7 +41,7 @@ around BUILDARGS => sub { # allow create Artist object with single argument pass
 };
 
 around [qw/nb_fan nb_album/] => sub { # add here another attributes which need fetching from server
-    my ($orig, $self) = (shift, shift);
+    my ($orig, $self) = @_;
     my $attr = $self->$orig(@_);
 
     unless (defined $attr) {
@@ -55,33 +55,33 @@ around [qw/nb_fan nb_album/] => sub { # add here another attributes which need f
 };
 
 sub top {
-    my $self = shift;
+    my ($self) = @_;
     return;
 }
 
 sub albums {
-    my $self = shift;
+    my ($self) = @_;
     return;
-}   
+}
 
 sub comments {
-    my $self = shift;
+    my ($self) = @_;
     return;
-}   
+}
 
 sub fans {
-    my $self = shift;
+    my ($self) = @_;
     return;
-}   
+}
 
 sub related {
-    my $self = shift;
+    my ($self) = @_;
     return;
-}   
+}
 
 sub get_radio {
-    my $self = shift;
+    my ($self) = @_;
     return;
-}   
+}
 
 1;

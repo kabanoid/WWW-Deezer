@@ -14,18 +14,17 @@ has 'cursor' => (is => 'rw', isa => 'Int', default => 0);
 has 'deezer_obj' => (is => 'rw', isa => 'Ref');
 
 sub count {
-    my $self = shift;
+    my ($self) = @_;
     return scalar @{$self->data};
 }
 
 sub first {
-    my $self = shift;
-    
+    my ($self) = @_;
     $self->_return_by_index(0);
 }
 
 sub next {
-    my $self = shift;
+    my ($self) = @_;
     my $cursor = $self->cursor;
     $self->cursor($cursor+1);
 

@@ -55,7 +55,7 @@ sub artist {
     my $uri = 'artist';
 
     my $id = _is_hashref ($p) ? int ($p->{id}) : int ($p);
-    
+
     my $res = $self->_get_url ({
         url     => $uri.'/'.$id,
         method  => 'GET'
@@ -63,7 +63,7 @@ sub artist {
 
     $res = $self->{json}->decode ($res) unless _is_hashref ($res);
     $res->{deezer_obj} = $self;
-  
+
     return WWW::Deezer::Artist->new($res);
 }
 
@@ -108,7 +108,7 @@ sub _get_url {
 
     my $res = $self->{ua}->request (HTTP::Request->new(
         $method => $self->{baseurl}.$url));
-    
+
     return $res->is_success ? $res->content : $self->_error($res->status_line);
 }
 
@@ -120,7 +120,7 @@ sub _error {
 ### functions ###
 
 sub _is_hashref {
-    my $x = shift;
+    my ($x) = @_;
     return ref $x && ref $x eq ref {};
 }
 
@@ -133,7 +133,7 @@ WWW::Deezer - Perl interface to Deezer API
 =head1 SYNOPSIS
 
   use WWW::Deezer;
-  
+
   my $deezer = WWW::Deezer->new();
   my $rs1 = $deezer->search ('Spinal Tap');
   my $rs2 = $deezer->search ({ q => 'Antonio Vivaldi Concerto No. 4', order => 'RATING_DESC' });

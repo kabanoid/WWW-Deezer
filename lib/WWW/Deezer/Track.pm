@@ -16,22 +16,22 @@ has 'id' => (
     is  => 'ro',
     isa => 'Int',
 );
-    
+
 has 'title' => (
     is  => 'ro',
     isa => 'Str',
 );
-    
+
 has 'link' => (
     is  => 'ro',
     isa => 'Str',
 );
-    
+
 has 'duration' => (
     is  => 'ro',
     isa => 'Int',
 );
-    
+
 has 'track_position' => (
     is  => 'ro',
     isa => 'Int',
@@ -57,7 +57,7 @@ has 'preview' => (
 );
 
 has 'artist' => (
-    is => 'rw', 
+    is => 'rw',
     isa => 'Ref',
 ); # 2do: change Ref to Object
 
@@ -72,12 +72,12 @@ has 'deezer_obj' => (
 );
 
 sub count {
-    my $self = shift;
+    my ($self) = @_;
     return scalar @{$self->data};
 }
 
 sub first {
-    my $self = shift;
+    my ($self) = @_;
     return $self->data->[0];
 }
 

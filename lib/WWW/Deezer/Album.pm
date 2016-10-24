@@ -25,15 +25,15 @@ has 'release_date' => (is => 'rw', isa => 'Str');
 has 'available' => (is => 'ro');
 
 has 'artist' => (
-    is => 'ro', 
-    isa => 'Ref', 
+    is => 'ro',
+    isa => 'Ref',
     weak_ref => 1
 ); # 2do: change Ref to Object
 
 has 'tracks' => (is => 'ro');
 
 around BUILDARGS => sub { # allow create Album object with single argument passed to constructor - deezer ID
-    my ($orig, $class) = (shift, shift);
+    my ($orig, $class) = @_;
     my $self = {};
 
     if (@_ == 1 && !ref $_[0] ) {
@@ -47,26 +47,26 @@ around BUILDARGS => sub { # allow create Album object with single argument passe
 };
 
 around [qw/genre_id link release_date/] => sub { # add here another attributes which need fetching from server
-    my ($orig, $self) = (shift, shift);
+    my ($orig, $self) = @_;
     my $attr = $self->$orig(@_);
-    
-    unless (defined $attr) { 
+
+    unless (defined $attr) {
         # fetch recreate album.
         my $new_obj = $self->deezer_obj->album($self->id);
         $attr= $new_obj->$orig(@_);
         $self->reinit_attr_values($new_obj);
     }
-    
+
     return $attr;
 };
 
 sub comments {
-    my $self = shift;
+    my ($self) = @_;
     return;
 }
 
 sub fans_list {
-    my $self = shift;
+    my ($self) = @_;
 }
 
 1;
