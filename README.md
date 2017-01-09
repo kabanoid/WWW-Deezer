@@ -1,6 +1,8 @@
 WWW-Deezer version 0.02
 =======================
 
+[![Build Status](https://secure.travis-ci.org/kabanoid/WWW-Deezer.png)](http://travis-ci.org/kabanoid/WWW-Deezer)
+
 INSTALLATION
 
 To install this module run the following:
@@ -20,12 +22,8 @@ This module requires other modules and libraries:
 
 COPYRIGHT AND LICENCE
 
-Put the correct copyright and licence information here.
-
-Copyright (C) 2013-2016 by Mikhail Katasonov
+Copyright (C) 2013-2017 by Mikhail Katasonov
 
 This library is free software; you can redistribute it and/or modify
 it under the same terms as Perl itself, either Perl version 5.14.2 or,
 at your option, any later version of Perl 5 you may have available.
-
-
