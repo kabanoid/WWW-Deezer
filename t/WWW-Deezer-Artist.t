@@ -7,7 +7,7 @@
 
 use Data::Dumper;
 
-use Test::More tests => 5;
+use Test::More tests => 7;
 BEGIN { use_ok('WWW::Deezer::Artist') };
 
 #########################
@@ -16,9 +16,12 @@ BEGIN { use_ok('WWW::Deezer::Artist') };
 # its man page ( perldoc Test::More ) for help writing this test script.
 
 my $artist = new_ok('WWW::Deezer::Artist');
+isa_ok ($artist, 'WWW::Deezer::Obj');
 
 $artist = new_ok('WWW::Deezer::Artist' => [744]);
 
 ok ($artist->name eq 'Nina Simone', 'Artist created correctly');
 
 ok (! ref $artist->radio, 'Artist radio flag has correct (simple) type');
+
+isa_ok ($artist->deezer_obj, 'WWW::Deezer', 'Artist object deezer_obj reference');
