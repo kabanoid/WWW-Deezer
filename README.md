@@ -7,18 +7,18 @@ INSTALLATION
 
 To install this module run the following:
 
-   perl Makefile.PL
-   make
-   make test
-   make install
+	perl ./Makefile.PL
+	make
+	make test
+	make install
 
 DEPENDENCIES
 
 This module requires other modules and libraries:
 
-  Moose
-  JSON
-  LWP
+	Moose
+	JSON
+	LWP
 
 COPYRIGHT AND LICENCE
 
