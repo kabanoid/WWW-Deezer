@@ -12,49 +12,46 @@ use WWW::Deezer::Artist;
 
 # http://developers.deezer.com/api/track
 
-has 'id' => (
-    is  => 'ro',
-    isa => 'Int',
-);
-    
-has 'title' => (
-    is  => 'ro',
-    isa => 'Str',
-);
-    
-has 'link' => (
-    is  => 'ro',
-    isa => 'Str',
-);
-    
-has 'duration' => (
-    is  => 'ro',
-    isa => 'Int',
-);
-    
-has 'track_position' => (
-    is  => 'ro',
-    isa => 'Int',
-);
+has 'id' => ( is  => 'ro', isa => 'Int' );
 
-has 'disk_number' => (
-    is  => 'ro',
-    isa => 'Int',
-);
-
-has 'rank' => (
-    is  => 'ro',
-    isa => 'Int',
-);
-
-has 'release_date' => (
+has 'readable' => (
     is => 'ro',
+    isa => 'JSONBoolean',
+    coerce => 1
 );
 
-has 'preview' => (
-    is  => 'ro',
-    isa => 'Str',
+has 'unseen' => (
+    is => 'ro',
+    isa => 'JSONBoolean',
+    coerce => 1
 );
+    
+has 'title'         => ( is  => 'ro', isa => 'Str' );
+has 'title_short'   => ( is  => 'ro', isa => 'Str' );
+has 'title_version' => ( is  => 'ro', isa => 'Str' );
+has 'isrc'          => ( is  => 'ro', isa => 'Str' );
+
+has 'link'     => ( is  => 'ro', isa => 'Str' );
+has 'share'    => ( is  => 'ro', isa => 'Str' );
+has 'duration' => ( is  => 'ro', isa => 'Int' );
+
+has 'track_position' => ( is  => 'ro', isa => 'Int' );
+
+has 'disk_number' => ( is  => 'ro', isa => 'Int' );
+
+has 'rank' => ( is  => 'ro', isa => 'Int' );
+
+has 'release_date' => ( is => 'ro', isa => 'Num' );
+has 'bpm'          => ( is => 'ro', isa => 'Num' );
+has 'gain'         => ( is => 'ro', isa => 'Num' );
+
+has 'explicit_lyrics' => (
+    is     => 'ro',
+    isa    => 'JSONBoolean',
+    coerce => 1,
+);
+
+has 'preview' => ( is  => 'ro', isa => 'Str' ); # URL
 
 has 'artist' => (
     is => 'rw', 

@@ -106,8 +106,11 @@ sub _get_url {
     my $url = $p->{url} || return $self->_error('No URL given');
     my $method = $p->{method} || 'GET';
 
-    my $res = $self->{ua}->request (HTTP::Request->new(
-        $method => $self->{baseurl}.$url));
+    my $request = HTTP::Request->new(
+        $method => $self->{baseurl}.$url,
+    );
+
+    my $res = $self->{ua}->request( $request );
     
     return $res->is_success ? $res->content : $self->_error($res->status_line);
 }
