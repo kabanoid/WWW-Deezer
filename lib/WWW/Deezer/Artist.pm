@@ -15,7 +15,13 @@ use WWW::Deezer::Album;
 has 'id', is => 'ro', isa => 'Int';
 has 'name', is => 'ro', isa => 'Str';
 has 'link', is => 'ro', isa => 'Str';
-has 'picture', is => 'ro', isa => 'Str';
+has 'tracklist', is => 'ro', isa => 'Str';
+has 'share', is => 'ro', isa => 'Url';
+has 'picture', is => 'ro', isa => 'Url';
+has 'picture_small', is => 'ro', isa => 'Url';
+has 'picture_medium', is => 'ro', isa => 'Url';
+has 'picture_big', is => 'ro', isa => 'Url';
+has 'picture_xl', is => 'ro', isa => 'Url';
 has 'nb_album', is => 'rw', isa => 'Int';
 has 'nb_fan', is => 'rw', isa => 'Int';
 

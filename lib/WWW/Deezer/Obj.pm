@@ -14,6 +14,9 @@ coerce 'JSONBoolean' => (
     via { JSON::is_bool($_) }
 );
 
+subtype 'Url' => as 'Str',
+    where { /^http/ };
+
 has 'deezer_obj', is => 'rw', isa => 'Ref';
 
 sub reinit_attr_values {
