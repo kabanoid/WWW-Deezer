@@ -130,7 +130,7 @@ sub _is_hashref {
 sub _to_string {
     my ($q) = @_;
 	return $q unless ref($q);
-    
+
     if (_is_hashref($q)) {
         my $res = join(" ", map { "$_:\"$q->{$_}\"" } keys %$q);
         return $res;
