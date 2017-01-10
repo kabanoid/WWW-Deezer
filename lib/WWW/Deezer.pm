@@ -75,7 +75,7 @@ sub search { # http://developers.deezer.com/api/search
     my ($q, $order, $index);
 
     if (_is_hashref ($p)) {
-        $q = $p->{q};
+        $q = _to_string( $p->{q} );
         $order = $p->{order} || 'RANKING';
         $index = $p->{index} || 0;
     }
@@ -127,6 +127,18 @@ sub _is_hashref {
     return ref $x && ref $x eq ref {};
 }
 
+sub _to_string {
+    my ($q) = @_;
+	return $q unless ref($q);
+    
+    if (_is_hashref($q)) {
+        my $res = join(" ", map { "$_:\"$q->{$_}\"" } keys %$q);
+        return $res;
+    }
+
+    return '';
+}
+
 1;
 __END__
 =head1 NAME
@@ -140,6 +152,7 @@ WWW::Deezer - Perl interface to Deezer API
   my $deezer = WWW::Deezer->new();
   my $rs1 = $deezer->search ('Spinal Tap');
   my $rs2 = $deezer->search ({ q => 'Antonio Vivaldi Concerto No. 4', order => 'RATING_DESC' });
+  my $rs3 = $deezer->search ({ q => { artist => 'Metallica', album => 'Garage Inc.' } });
 
   while (my $record = $rs1->next) {
       $album_obj = $record->album;
@@ -148,7 +161,7 @@ WWW::Deezer - Perl interface to Deezer API
 
       warn ("$name has a radio channel!") if $artist->radio;
 
-      $fans_count = $artist->nb_fans;
+      $fans_count = $artist->nb_fan;
   }
 
   my $top_record = $rs2->first;

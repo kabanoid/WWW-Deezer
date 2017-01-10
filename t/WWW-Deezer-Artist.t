@@ -4,7 +4,7 @@
 
 use Data::Dumper;
 
-use Test::More tests => 7;
+use Test::More tests => 8;
 BEGIN { use_ok('WWW::Deezer::Artist') };
 
 #########################
@@ -16,6 +16,8 @@ my $artist = new_ok('WWW::Deezer::Artist');
 isa_ok ($artist, 'WWW::Deezer::Obj');
 
 $artist = new_ok('WWW::Deezer::Artist' => [744]);
+
+can_ok ($artist, qw/name radio deezer_obj nb_fan/);
 
 ok ($artist->name eq 'Nina Simone', 'Artist created correctly');
 

@@ -8,7 +8,7 @@
 use strict;
 use warnings;
 
-use Test::More tests => 4;
+use Test::More tests => 5;
 BEGIN { use_ok('WWW::Deezer') };
 
 #########################
@@ -21,6 +21,15 @@ my $deezer = WWW::Deezer->new();
 isa_ok( $deezer => 'WWW::Deezer');
 can_ok( $deezer, qw/search album artist/ );
 
-my $rs = $deezer->search ({ q => 'Antonio Vivaldi Concerto No. 4', order => 'RATING_DESC' });
+my $rs1 = $deezer->search ({ q => 'Antonio Vivaldi Concerto No. 4', order => 'RATING_DESC' });
+isa_ok( $rs1 => 'WWW::Deezer::SearchResult' );
 
-isa_ok( $rs => 'WWW::Deezer::SearchResult' );
+# search by passing a HASHREF to query
+my $rs2 = $deezer->search ({
+    q => {
+        artist => 'Spinal Tap',
+        album  => 'This Is Spinal Tap',
+    }
+});
+
+isa_ok( $rs2 => 'WWW::Deezer::SearchResult' );
