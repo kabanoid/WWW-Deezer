@@ -28,7 +28,9 @@ has 'rating' => (is => 'ro', isa => 'Int');
 has 'release_date' => (is => 'rw', isa => 'Str');
 has 'available' => (is => 'ro');
 has 'genres' => (is => 'ro');
+has 'nb_tracks' => (is => 'ro');
 has 'upc' => (is => 'ro', isa => 'Str');
+has 'record_type' => (is => 'ro', isa => 'Str');
 
 has 'artist' => (
     is => 'ro', 
@@ -52,14 +54,14 @@ around BUILDARGS => sub { # allow create Album object with single argument passe
     return $self;
 };
 
-around [qw/genre_id link release_date/] => sub { # add here another attributes which need fetching from server
+around [qw/genre_id link release_date upc genres nb_tracks record_type/] => sub { # add here another attributes which need fetching from server
     my ($orig, $self) = (shift, shift);
     my $attr = $self->$orig(@_);
     
     unless (defined $attr) { 
         # fetch recreate album.
         my $new_obj = $self->deezer_obj->album($self->id);
-        $attr= $new_obj->$orig(@_);
+        $attr = $new_obj->$orig(@_);
         $self->reinit_attr_values($new_obj);
     }
     
