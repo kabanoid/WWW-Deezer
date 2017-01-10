@@ -16,6 +16,10 @@ has 'id' => (is => 'ro', isa => 'Int');
 has 'title' => (is => 'ro', isa => 'Str');
 has 'link' => (is => 'rw', isa => 'Str');
 has 'cover' => (is => 'ro', isa => 'Str');
+has 'cover_small' => (is => 'ro', isa => 'Str');
+has 'cover_medium' => (is => 'ro', isa => 'Str');
+has 'cover_big' => (is => 'ro', isa => 'Str');
+has 'cover_xl' => (is => 'ro', isa => 'Str');
 has 'genre_id' => (is => 'rw', isa => 'Int');
 has 'label' => (is => 'ro', isa => 'Str');
 has 'duration' => (is => 'ro', isa => 'Int');
@@ -23,6 +27,8 @@ has 'fans' => (is => 'ro', isa => 'Int');
 has 'rating' => (is => 'ro', isa => 'Int');
 has 'release_date' => (is => 'rw', isa => 'Str');
 has 'available' => (is => 'ro');
+has 'genres' => (is => 'ro');
+has 'upc' => (is => 'ro', isa => 'Str');
 
 has 'artist' => (
     is => 'ro', 
