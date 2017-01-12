@@ -1,4 +1,4 @@
-WWW-Deezer version 0.02
+WWW-Deezer version 0.03
 =======================
 
 [![Build Status](https://secure.travis-ci.org/kabanoid/WWW-Deezer.png)](http://travis-ci.org/kabanoid/WWW-Deezer)

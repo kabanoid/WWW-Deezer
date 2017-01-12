@@ -11,7 +11,7 @@ use URI::Escape;
 use WWW::Deezer::SearchResult;
 use WWW::Deezer::Artist;
 
-our $VERSION = '0.02';
+our $VERSION = '0.03';
 our $API_VERSION = '2.0';
 
 sub new {

@@ -1,6 +1,6 @@
 package WWW::Deezer::Obj;
 
-our $VERSION = '0.02';
+our $VERSION = '0.03';
 
 use Moose;
 use Moose::Util::TypeConstraints;
