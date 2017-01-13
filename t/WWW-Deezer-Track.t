@@ -2,7 +2,7 @@
 
 # change 'tests => 1' to 'tests => last_test_to_print';
 
-use Test::More tests => 7;
+use Test::More tests => 6;
 BEGIN { use_ok('WWW::Deezer::Track') };
 
 #########################
@@ -12,7 +12,6 @@ BEGIN { use_ok('WWW::Deezer::Track') };
 
 my $track = new_ok('WWW::Deezer::Track');
 
-isa_ok ($track, 'WWW::Deezer::Track');
 isa_ok ($track, 'WWW::Deezer::Obj');
 
 can_ok( $track, qw/id readable title title_short title_version unseen isrc link/ );

@@ -2,7 +2,7 @@
 
 # change 'tests => 1' to 'tests => last_test_to_print';
 
-use Test::More tests => 7;
+use Test::More tests => 6;
 BEGIN { use_ok('WWW::Deezer::Album') };
 
 #########################
@@ -12,7 +12,6 @@ BEGIN { use_ok('WWW::Deezer::Album') };
 
 my $album = new_ok('WWW::Deezer::Album');
 
-isa_ok ($album, 'WWW::Deezer::Album');
 isa_ok ($album, 'WWW::Deezer::Obj');
 
 can_ok( $album => qw/id title upc link genres genre_id label nb_tracks/ );
