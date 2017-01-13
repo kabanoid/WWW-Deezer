@@ -180,7 +180,7 @@ None by default.
 =head1 SEE ALSO
 
 Oficial Deezer API documentation:
-L<http://developers.deezer.com/api>
+L<https://developers.deezer.com/api>
 
 =head1 AUTHOR
 
