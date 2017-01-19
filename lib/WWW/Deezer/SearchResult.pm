@@ -11,7 +11,7 @@ has 'total' => (is => 'ro', isa => 'Int');
 has 'request' => (is => 'ro');
 has 'index' => (is => 'rw', isa => 'Int');
 has 'cursor' => (is => 'rw', isa => 'Int', default => 0);
-has 'deezer_obj' => (is => 'rw', isa => 'Ref');
+has 'deezer_obj' => (is => 'rw', isa => 'WWW::Deezer');
 
 sub count {
     my $self = shift;
