@@ -5,7 +5,7 @@ our $VERSION = '0.03';
 use Moose;
 use Moose::Util::TypeConstraints;
 
-# base class for representing Deezer objects
+# base class for all Deezer objects
 
 subtype 'JSONBoolean' => (as 'Int');
 

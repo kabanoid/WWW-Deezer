@@ -3,7 +3,6 @@ package WWW::Deezer;
 use strict;
 use warnings;
 
-use Carp();
 use LWP::UserAgent;
 use JSON;
 use URI::Escape;
@@ -16,9 +15,6 @@ our $API_VERSION = '2.0';
 
 sub new {
     my ($class, $params) = @_;
-
-#   Carp::croak("Options to WWW::Deezer should be in a hash reference")
-#       if ref($params) ne ref {};
 
     my $self = {
         baseurl => "http://api.deezer.com/$API_VERSION/",
@@ -33,7 +29,7 @@ sub new {
     return $self;
 }
 
-sub album {
+sub album { # 2DO: declare a lazy attribute 'album' and create a builder
     my ($self, $p) = @_;
     my $uri = 'album';
 
@@ -50,7 +46,7 @@ sub album {
     return WWW::Deezer::Album->new($res);
 }
 
-sub artist {
+sub artist { # 2DO: declare a lazy attribute 'artist' and create a builder
     my ($self, $p) = @_;
     my $uri = 'artist';
 
@@ -105,6 +101,8 @@ sub _get_url {
     warn ('sending http request') if ($self->{debug});
     my $url = $p->{url} || return $self->_error('No URL given');
     my $method = $p->{method} || 'GET';
+
+    warn (sprintf("%s %s%s", $method, $self->{baseurl}, $url)) if ($self->{debug});
 
     my $request = HTTP::Request->new(
         $method => $self->{baseurl}.$url,

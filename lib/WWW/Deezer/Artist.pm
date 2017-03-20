@@ -35,8 +35,7 @@ around BUILDARGS => sub { # allow create Artist object with single argument pass
     my ($orig, $class) = (shift, shift);
     my $self = {};
 
-    if (@_ == 1 && !ref $_[0] ) {
-        $self = $class->$orig( id => $_[0] );
+    if (@_ == 1 && !ref $_[0] ) { # single argument is passed
         $self = WWW::Deezer->new->artist($_[0]);
     }
     else {

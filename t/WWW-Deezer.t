@@ -8,7 +8,7 @@
 use strict;
 use warnings;
 
-use Test::More tests => 8;
+use Test::More tests => 9;
 BEGIN { use_ok('WWW::Deezer') };
 
 #########################
@@ -41,3 +41,5 @@ my $album = $first->album;
 isa_ok( $album => 'WWW::Deezer::Album' );
 
 like( $album->cover, qr/^http/, "Album cover is a link to (most probably) a picture" );
+
+ok ($deezer->artist(744));
