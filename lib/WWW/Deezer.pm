@@ -17,7 +17,7 @@ sub new {
     my ($class, $params) = @_;
 
     my $self = {
-        baseurl => "http://api.deezer.com/$API_VERSION/",
+        baseurl => "https://api.deezer.com/$API_VERSION/",
         ua      => LWP::UserAgent->new,
         json    => JSON->new->allow_nonref,
         debug   => 0,
@@ -63,7 +63,7 @@ sub artist { # 2DO: declare a lazy attribute 'artist' and create a builder
     return WWW::Deezer::Artist->new($res);
 }
 
-sub search { # http://developers.deezer.com/api/search
+sub search { # https://developers.deezer.com/api/search
     # 2DO: limits? paging?
     my ($self, $p) = @_;
 

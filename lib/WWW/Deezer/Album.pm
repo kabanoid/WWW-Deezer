@@ -10,7 +10,7 @@ extends 'WWW::Deezer::Obj';
 use WWW::Deezer;
 use WWW::Deezer::Artist;
 
-# http://developers.deezer.com/api/album
+# https://developers.deezer.com/api/album
 
 has 'id' => (is => 'ro', isa => 'Int');
 has 'title' => (is => 'ro', isa => 'Str');
